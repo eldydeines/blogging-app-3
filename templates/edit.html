@@ -5,12 +5,24 @@
 {% block content %}
 <h1>Update Profile</h1>
 <div>
-    <form action="" method="POST">
-        <input type="text" name="first" placeholder='{{user.first_name}}'>
-        <input type="text" name="last" placeholder='{{user.second_name}}'>
-        <input type="text" name="image" placeholder='{{user.profile_image}}'>
-        <button type="submit">Save</button>
-        <button><a href="/">Cancel</a></button>
+    <form action="" method="POST" class="row g-3">
+        <div class="col-md-6">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="first-name" name="first" placeholder="{{user.first_name}}">
+        </div>
+        <div class="col-md-6">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="last-name" name="last" placeholder='{{user.last_name}}'>
+        </div>
+        <div class="col-12">
+            <label for="profile-image" class="form-label">Profile Image</label>
+            <input type="text" class="form-control" id="profile-image" name="image"
+                placeholder='{{user.profile_image}}'>
+        </div>
+        <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button class="btn btn-success"><a class="text-white" href="/">Cancel</a></button>
+        </div>
     </form>
 </div>
 

@@ -4,12 +4,21 @@
 
 {% block content %}
 
-<div><img src="{{user.profile_image}}" alt=""></div>
-<div>
-    <h1>{{user.first_name}} {{user.last_name}}</h1>
-    <button><a href="/users/{{user.id}}/edit">Edit Profile</a></button>
-    <button><a href="/users/{{user.id}}/delete">Delete</a></button>
+<div class="card mt-5" style="max-width: 500px;">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{user.profile_image}}" class="card-img" alt="{{user.id}}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title">{{user.first_name}} {{user.last_name}}</h3>
+                <div><a href="/users/{{user.id}}/edit" class="btn btn-primary">Edit Profile</a>
+                    <a href="/users/{{user.id}}/delete" class="btn btn-danger">Delete</a>
+                </div>
+                <div class='mt-1'><a href="/" class="btn btn-success">Go Back Home</a></div>
+            </div>
+        </div>
+    </div>
 </div>
-<a href="/">Go Back Home</a>
 
 {% endblock %}

@@ -20,7 +20,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
-    profile_image = db.Column(db.String(200), nullable=True, default="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png")
+    profile_image = db.Column(db.Text, nullable=True, default="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png")
 
 
     def __repr__(self):
