@@ -19,15 +19,18 @@ def list_users():
     return render_template('users.html', users = all_users)
 
 
+@app.route('/users/new')
+def render_user_form():
+    return render_template('new.html')
+
 @app.route('/users/new', methods=["POST"])
 def create_user():
     first_name = request.form['first']
     last_name = request.form['last']
     profile_image = request.form['image']
-    profile_image = profile_image if profile_image else None
 
     new_user = User(first_name=first_name, last_name=last_name, profile_image=profile_image)
-
+    print(new_user)
     db.session.add(new_user)
     db.session.commit()
 
@@ -61,11 +64,18 @@ def update_user(user_id):
     
     return redirect('/users')
 
-@app.route('/users/<int:user_id>/delete' methods=["POST"])
+@app.route('/users/<int:user_id>/delete')
+def show_deleted_user(user_id):
+    """Edit User"""
+    delete_user = User.query.get_or_404(user_id)
+    return render_template('delete.html', user=delete_user)
+
+
+@app.route('/users/<int:user_id>/delete', methods=["POST"])
 def delete_user(user_id):
     
     print(User.query.get(user_id))
     User.query.filter_by(id = user_id).delete()
     db.session.commit()
     
-    return redirect('/users')
+    return redirect('/')
