@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block content %}
+<h1>Update Profile</h1>
+<div>
+    <form action="/users" method="POST">
+        <input type="text" name="first" placeholder='{{user.first_name}}'>
+        <input type="text" name="last" placeholder='{{user.second_name}}'>
+        <input type="text" name="image" placeholder='{{user.profile_image}}'>
+        <button type="submit">Save</button>
+        <button><a href="/">Cancel</a></button>
+    </form>
+</div>
+
+{% endblock %}

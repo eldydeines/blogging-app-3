@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}All Users{% endblock %}
+
+{% block content %}
+
+<form action="/users" method="POST" class="row g-3">
+    <div class="col-md-6">
+        <label for="first-name" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="first-name" name="first" required>
+    </div>
+    <div class="col-md-6">
+        <label for="last-name" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="last-name" name="last" required>
+    </div>
+    <div class="col-12">
+        <label for="profile-image" class="form-label">Profile Image</label>
+        <input type="text" class="form-control" id="profile-image" name="image">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+{% endblock %}
