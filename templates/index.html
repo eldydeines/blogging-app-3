@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to the Old West Blogging{% endblock %}
+
+{% block content %}
+<h1 class="mb-3">The Old West Recent Posts</h1>
+{% for post in posts %}
+<figure>
+    <h2>{{post.title}}</h2>
+    <blockquote class="blockquote">
+        <p>{{post.content}}</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        By <cite title="Source Title">{{post.user.get_fullname()}}</cite><br>
+        Created on {{post.created_at.strftime('%Y-%m-%d %I:%M %Z')}}
+    </figcaption>
+</figure>
+{% endfor %}
+<div class='mt-1'><a href="/users" class="btn btn-primary">See all users</a>
+</div>
+
+{% endblock %}

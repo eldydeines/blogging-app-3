@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Post{% endblock %}
+
+{% block content %}
+<h2>{{this_post.title}}</h2>
+<figure>
+    <blockquote class="blockquote">
+        <p>{{this_post.content}}</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        By <cite title="Source Title">{{full_name}}</cite><br>
+        Created on {{this_post.created_at.strftime('%Y-%m-%d')}}
+    </figcaption>
+</figure>
+
+<div class='mt-1'><a href="/" class="btn btn-success">Cancel</a>
+    <a href="/posts/{{this_post.id}}/edit" class="btn btn-primary">Edit</a>
+    <a href="/posts/{{this_post.id}}/delete" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}
