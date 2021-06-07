@@ -9,9 +9,15 @@
         <p>{{this_post.content}}</p>
     </blockquote>
     <figcaption class="blockquote-footer">
-        By <cite title="Source Title">{{full_name}}</cite><br>
-        Created on {{this_post.created_at.strftime('%Y-%m-%d')}}
+        By <cite title="Source Title">{{this_post.user.get_fullname()}}</cite>
+        Created on <cite>{{this_post.created_at.strftime('%Y-%m-%d')}}</cite>
+
     </figcaption>
+    <p>Tags:
+        {% for tag in tags %}
+        <span class="badge bg-info text-dark">{{tag.name}}</span>
+        {% endfor %}
+    </p>
 </figure>
 
 <div class='mt-1'><a href="/" class="btn btn-success">Cancel</a>

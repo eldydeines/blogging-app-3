@@ -11,12 +11,14 @@
         <p>{{post.content}}</p>
     </blockquote>
     <figcaption class="blockquote-footer">
-        By <cite title="Source Title">{{post.user.get_fullname()}}</cite><br>
-        Created on {{post.created_at.strftime('%Y-%m-%d %I:%M %Z')}}
+        By <cite title="Source Title">{{post.user.get_fullname()}} </cite> Created on
+        <cite>{{post.created_at.strftime('%Y-%m-%d %I:%M %Z')}}</cite><br>
     </figcaption>
 </figure>
 {% endfor %}
-<div class='mt-1'><a href="/users" class="btn btn-primary">See all users</a>
+<div class='mt-1'>
+    <a href="/users" class="btn btn-primary">See all users</a>
+    <a href="/tags" class="btn btn-primary">See all tags</a>
 </div>
 
 {% endblock %}
